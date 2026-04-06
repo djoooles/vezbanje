@@ -29,12 +29,13 @@
                 <th scope="col">{{ $contact->message }}</th>
                 <th scope="col">{{ $contact->created_at }}</th>
                 <td>
-                    <a class="btn btn-danger">Obrisi</a>
+                    <a href="/admin/delete-contact/{{ $contact->id }}" class="btn btn-danger">Obrisi</a>
                     <a class="btn btn-primary">Edituj</a>
                 </td>
-            @endforeach
+
         </tr>
         </tbody>
+        @endforeach
 
     </table>
 

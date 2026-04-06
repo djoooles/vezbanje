@@ -15,9 +15,12 @@ Route::view("/dodaj-ocenu", "gradeAdd");
 
 Route::get("/", [OceneController::class, 'index']);
 
-Route::post("/send-contact", [ContactController::class, "getAllContacts"]);
+Route::post("/send-contact", [ContactController::class, "sendContact"]);
 
 Route::get("/admin/all-products", [ProductsController::class, "index"]);
 Route::post("/add-user-grade", [OceneController::class, "addGrade"]);
 Route::get("/admin/delete-product/{product}", [ProductsController::class, "delete"]);
 Route::get("/allContacts", [ContactController::class, "getAllContacts"]);
+
+
+Route::get("/admin/delete-contact/{contact}", [ContactController::class, "delete"]);

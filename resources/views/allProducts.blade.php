@@ -23,11 +23,11 @@
                 <tr>
                     @foreach($allProducts as $product)
                         <td> {{ $product->id }} </td>
-                    <td> {{ $product->name }} </td>
-                    <td> {{ $product->description }} </td>
-                    <td> {{ $product->price }} </td>
-                    <td> {{ $product->image }} </td>
-                    <td>
+                        <td> {{ $product->name }} </td>
+                        <td> {{ $product->description }}</td>
+                        <td> {{ $product->price }} </td>
+                        <td> {{ $product->image }} </td>
+                     <td>
                         <a href="/admin/delete-product/{{ $product->id }}" class="btn btn-danger" >Obrisi</a>
                         <a class="btn btn-primary">Edituj</a>
                     </td>

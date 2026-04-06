@@ -33,6 +33,17 @@ class ContactController extends Controller
         ]);
 
         return redirect(("/"));
+    }
+    public function delete($contact)
+    {
+        $singleContact = Contact::where(['id' => $contact])->first();
 
+        if($singleContact === null)
+        {
+            die("Nema Contacta tog!");
+        }
+        $singleContact->delete();
+
+        return redirect()->back();
     }
 }

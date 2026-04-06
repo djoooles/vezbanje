@@ -19,7 +19,7 @@ class ProductsController extends Controller
     {
         $singleProduct = Produsts::where(['id' => $product])->first();
 
-        if( $singleProduct == null)
+        if( $singleProduct === null)
         {
             die("Ovaj proizvod ne postoji");
         }
