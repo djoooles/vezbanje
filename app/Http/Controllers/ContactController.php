@@ -21,7 +21,7 @@ class ContactController extends Controller
     public function sendContact(Request $request)
     {
         $request->validate([
-            "email" => "required|string",
+            "email" => "required|email|string",
             "subject" => "required|string",
             "description" => "required|string|min:5|max:255"
         ]);
@@ -32,7 +32,7 @@ class ContactController extends Controller
             "message" => $request->get("description")
         ]);
 
-        return redirect(("/"));
+        return redirect("/")->with('success', 'Upit Uspesno Poslat!');
     }
     public function delete($contact)
     {
