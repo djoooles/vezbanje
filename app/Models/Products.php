@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produsts extends Model
+class Products extends Model
 {
     protected $table = "products";
 
     protected $fillable = ([
-        "id","created_at","updated_at"
+        "name","description","price","image"
     ]);
 
 

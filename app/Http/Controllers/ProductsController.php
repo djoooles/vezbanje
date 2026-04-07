@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produsts;
+use App\Models\Products;
 
 
 
@@ -12,12 +12,38 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $allProducts = Produsts::all();
+        $allProducts = Products::all();
+        return view("shop", compact("allProducts"));
+    }
+
+    public function products()
+    {
+        $allProducts = Products::all();
         return view("allProducts", compact("allProducts"));
+    }
+
+    public function saveProduct(Request $request)
+    {
+        // Validacija
+        $request->validate([
+            "name" => "required|string|max:255",
+            "description" => "required|string",
+            "price" => "required|numeric|min:0",
+            "image" => "required|string|max:255",
+        ]);
+
+        // Kreiranje proizvoda
+        Products::create([
+            "name" => $request->name,
+            "description" => $request->description,
+            "price" => $request->price,
+            "image" => $request->image,
+        ]);
+        return redirect("/admin/all-products")->with('success', 'Proizvod Uspesno Dodat!');
     }
     public function delete($product)
     {
-        $singleProduct = Produsts::where(['id' => $product])->first();
+        $singleProduct = Products::where(['id' => $product])->first();
 
         if( $singleProduct === null)
         {
@@ -27,4 +53,5 @@ class ProductsController extends Controller
 
         return redirect()->back();
     }
+
 }
