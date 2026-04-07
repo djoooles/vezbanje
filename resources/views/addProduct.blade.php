@@ -20,6 +20,10 @@
             <input type="number" name="price" placeholder="Unesite Cenu">
         </div>
         <div>
+            <label>Kolicina</label>
+            <input type="number" name="kolicina" placeholder="Unestie kolicinu">
+        </div>
+        <div>
             <label>Image</label>
             <input type="text" name="image" placeholder="Unesite Sliku">
 

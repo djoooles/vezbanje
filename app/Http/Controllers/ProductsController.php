@@ -29,6 +29,7 @@ class ProductsController extends Controller
             "name" => "required|string|max:255",
             "description" => "required|string",
             "price" => "required|numeric|min:0",
+            "kolicina" => "required|integer|min:0",
             "image" => "required|string|max:255",
         ]);
 
@@ -37,6 +38,7 @@ class ProductsController extends Controller
             "name" => $request->name,
             "description" => $request->description,
             "price" => $request->price,
+            "kolicina" => $request->kolicina,
             "image" => $request->image,
         ]);
         return redirect("/admin/all-products")->with('success', 'Proizvod Uspesno Dodat!');
