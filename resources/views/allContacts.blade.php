@@ -29,8 +29,8 @@
                 <th scope="col">{{ $contact->message }}</th>
                 <th scope="col">{{ $contact->created_at }}</th>
                 <td>
-                    <a href="/admin/delete-contact/{{ $contact->id }}" class="btn btn-danger">Obrisi</a>
-                    <a class="btn btn-primary">Edituj</a>
+                    <a href="{{ route('obrisiContact',['contact' => $contact->id])  }}" class="btn btn-danger">Obrisi</a>
+                    <a href="{{ route('edit', ['contact' => $contact->id])  }}" class="btn btn-primary">Edituj</a>
                 </td>
 
         </tr>

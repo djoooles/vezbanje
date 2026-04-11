@@ -18,14 +18,26 @@ Route::get("/", [OceneController::class, 'index']);
 
 Route::post("/send-contact", [ContactController::class, "sendContact"]);
 
-Route::get("/admin/all-products", [ProductsController::class, "products"]);
 Route::post("/add-user-grade", [OceneController::class, "addGrade"]);
-Route::get("/admin/delete-product/{product}", [ProductsController::class, "delete"]);
-Route::get("/admin/delete-contact/{contact}", [ContactController::class, "delete"]);
+
+
+                   /*Named route ADMIN {*/
+Route::get("/admin/delete-product/{product}", [ProductsController::class, "delete"])
+    ->name("obrisiProizvod");
+
+Route::get("/admin/delete-contact/{contact}", [ContactController::class, "delete"])
+    ->name("obrisiContact");
+
+Route::post("/admin/save-product", [ProductsController::class, "saveProduct"])
+    ->name("snimanjeOglasa");
+
+Route::get("/admin/all-products", [ProductsController::class, "products"])
+    ->name("sviProizvodi");
+
 Route::get("/allContacts", [ContactController::class, "getAllContacts"]);
 
 Route::get("/admin/add-product" , function (){
     return view("addProduct");
 });
-
-Route::post("/admin/save-product", [ProductsController::class, "saveProduct"]);
+Route::get("admin/product/edit/{id}", [ProductsController::class, "singleProduct"])
+    ->name("product.single");

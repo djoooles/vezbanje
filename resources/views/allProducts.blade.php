@@ -30,8 +30,8 @@
                         <td> {{ $product->kolicina }} </td>
                         <td> {{ $product->image }} </td>
                      <td>
-                        <a href="/admin/delete-product/{{ $product->id }}" class="btn btn-danger" >Obrisi</a>
-                        <a class="btn btn-primary">Edituj</a>
+                        <a href="{{ route('obrisiProizvod',['product' => $product->id]) }}" class="btn btn-danger" >Obrisi</a>
+                        <a href="{{ route('product.single', ['id' => $product->id]) }}" class="btn btn-primary">Edituj</a>
                     </td>
                 </tr>
                 </tbody>

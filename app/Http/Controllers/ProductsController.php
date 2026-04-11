@@ -26,7 +26,7 @@ class ProductsController extends Controller
     {
         // Validacija
         $request->validate([
-            "name" => "required|string|max:255",
+            "name" => "required|string|max:255|unique:products",
             "description" => "required|string",
             "price" => "required|numeric|min:0",
             "kolicina" => "required|integer|min:0",
@@ -41,7 +41,7 @@ class ProductsController extends Controller
             "kolicina" => $request->kolicina,
             "image" => $request->image,
         ]);
-        return redirect("/admin/all-products")->with('success', 'Proizvod Uspesno Dodat!');
+        return redirect()->route("sviProizvodi");
     }
     public function delete($product)
     {
@@ -54,6 +54,12 @@ class ProductsController extends Controller
         $singleProduct->delete();
 
         return redirect()->back();
+    }
+    public function singleProduct(Request $request, $id)
+    {
+        $product = Products::findOrFail($id);
+        return view('editProduct', compact('product'));
+
     }
 
 }
