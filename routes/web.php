@@ -41,3 +41,6 @@ Route::get("/admin/add-product" , function (){
 });
 Route::get("admin/product/edit/{id}", [ProductsController::class, "singleProduct"])
     ->name("product.single");
+
+Route::post("/admin/proudct/save/{id}", [ProductsController::class, "save"])
+    ->name("product.save");

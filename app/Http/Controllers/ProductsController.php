@@ -57,9 +57,32 @@ class ProductsController extends Controller
     }
     public function singleProduct(Request $request, $id)
     {
-        $product = Products::findOrFail($id);
-        return view('editProduct', compact('product'));
+        $product = Products::where(['id' => $id])->first();
 
+        if( $product === null)
+        {
+            die("Ovaj Proizvod ne Postoji");
+        }
+        return view("products.edit", compact("product"));
     }
 
+    public function save(Request $request, $id)
+    {
+        $product = Products::where(['id' => $id])->first();
+        if( $product === null)
+        {
+            die("Ovaj Proizvod ne Postoji");
+        }
+
+        $product->name = $request->get("name");
+        $product->description = $request->get("description");
+        $product->price = $request->get("price");
+        $product->kolicina = $request->get("kolicina");
+        $product->image = $request->get("image");
+
+        $product->save();
+
+        return redirect()->back();
+
+    }
 }
