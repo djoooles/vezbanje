@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AdminCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OceneController;
 use App\Http\Controllers\ProductsController;
@@ -16,7 +17,7 @@ Route::view("/dodaj-ocenu", "gradeAdd");
 Route::get("/", [OceneController::class, 'index']);
 
 
-Route::middleware('auth')->prefix('admin')->group(function (){
+Route::middleware(["auth", AdminCheckMiddleware::class])->prefix('admin')->group(function (){
 
     Route::post("/send-contact", [ContactController::class, "sendContact"]);
 
