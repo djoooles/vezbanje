@@ -30,7 +30,6 @@
                 <th scope="col">{{ $contact->created_at }}</th>
                 <td>
                     <a href="{{ route('obrisiContact', ['contact' => $contact->id])  }}" class="btn btn-danger">Obrisi</a>
-                    <a href="{{ route('product.single', ['id' => $product->id])  }}" class="btn btn-primary">Edituj</a>
                 </td>
 
         </tr>

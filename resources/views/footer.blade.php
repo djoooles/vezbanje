@@ -19,7 +19,7 @@
                 <ul class="list-unstyled">
                     <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Početna</a></li>
                     <li><a href="{{ url('/dodaj-ocenu') }}"><i class="fas fa-plus-circle"></i> Dodaj ocenu</a></li>
-                    <li><a href="{{ url('/admin/all-products') }}"><i class="fas fa-box"></i> Proizvodi</a></li>
+                    <li><a href="{{ url('/admin/allProducts') }}"><i class="fas fa-box"></i> Proizvodi</a></li>
                     <li><a href="/about"><i class="fas fa-info"></i> O nama</a></li>
                     <li><a href="/contact"><i class="fas fa-envelope"></i> Kontakt</a></li>
                 </ul>

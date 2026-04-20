@@ -6,7 +6,7 @@
 
 @section("content")
 
-    <form method="POST" action="{{ route("product.save", ['id' => $product->id]) }}">
+    <form method="POST" action="{{ route("product.save", ['product' => $product->id]) }}">
         {{ csrf_field() }}
 
         <div class="form-group">
